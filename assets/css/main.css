@@ -429,26 +429,66 @@ h6 {
     overflow: hidden;
   }
 
+  /* backdrop-filter on .header traps fixed nav inside header height on mobile */
+  .mobile-nav-active .header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
   .mobile-nav-active .mobile-nav-toggle {
     color: #fff;
-    position: absolute;
+    position: fixed;
     font-size: 32px;
     top: 15px;
     right: 15px;
     margin-right: 0;
-    z-index: 9999;
+    z-index: 10000;
   }
 
   .mobile-nav-active .navmenu {
     position: fixed;
     overflow: hidden;
     inset: 0;
-    background: rgba(33, 37, 41, 0.8);
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(33, 37, 41, 0.88);
     transition: 0.3s;
+    z-index: 9999;
   }
 
   .mobile-nav-active .navmenu>ul {
     display: block;
+    top: 72px;
+    left: 16px;
+    right: 16px;
+    bottom: auto;
+    max-height: calc(100dvh - 96px);
+    padding: 8px 0;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .mobile-nav-active .navmenu>ul>li {
+    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  }
+
+  .mobile-nav-active .navmenu>ul>li:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-nav-active .navmenu a,
+  .mobile-nav-active .navmenu a:focus {
+    color: var(--nav-dropdown-color);
+    padding: 14px 20px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .mobile-nav-active .navmenu .active,
+  .mobile-nav-active .navmenu a:hover {
+    color: var(--nav-dropdown-hover-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 92%);
   }
 }
 
