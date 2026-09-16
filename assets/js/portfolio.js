@@ -112,7 +112,7 @@
     const categoryLabel = getCategoryLabel(category.key);
 
     return (
-      '<div class="col-lg-4 col-md-6 portfolio-item ' + category.classes + '" ' +
+      '<div class="col-12 col-lg-4 portfolio-item ' + category.classes + '" ' +
         'data-project-slug="' + project.slug + '" ' +
         'data-project-title="' + title.replace(/"/g, "&quot;") + '" ' +
         'data-project-tag="' + (tag + " · " + categoryLabel).replace(/"/g, "&quot;") + '" ' +
