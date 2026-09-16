@@ -127,7 +127,6 @@
         mobile: "Mobile",
         tablet: "Tablet",
         desktop: "Desktop",
-        note: "Preview how the layout looks at different screen widths.",
         reset: "Reset to defaults",
       },
     },
@@ -247,7 +246,6 @@
         mobile: "موبايل",
         tablet: "تابلت",
         desktop: "ديسكتوب",
-        note: "شوف شكل الموقع على مقاسات مختلفة قبل ما تنشره.",
         reset: "إعادة الضبط",
       },
     },
@@ -304,14 +302,17 @@
     });
   }
 
-  function applyLanguage(lang) {
+  function applyLanguage(lang, options) {
+    const opts = options || {};
     const dictionary = translations[lang] || translations.en;
     const root = document.documentElement;
 
     root.lang = lang;
     root.dir = lang === "ar" ? "rtl" : "ltr";
     document.body.classList.toggle("lang-ar", lang === "ar");
-    document.title = dictionary.meta.title;
+    if (!opts.keepTitle) {
+      document.title = dictionary.meta.title;
+    }
 
     document.querySelectorAll("[data-i18n]").forEach(function (element) {
       const key = element.getAttribute("data-i18n");
@@ -333,18 +334,22 @@
       button.classList.toggle("active", button.getAttribute("data-lang") === lang);
     });
 
-    initTyped(lang);
-
-    if (window.GergesServicesModal && typeof window.GergesServicesModal.refresh === "function") {
-      window.GergesServicesModal.refresh();
+    if (!opts.skipTyped) {
+      initTyped(lang);
     }
 
-    if (window.GergesPortfolio && typeof window.GergesPortfolio.refresh === "function") {
-      window.GergesPortfolio.refresh();
-    }
+    if (!opts.skipWidgetRefresh) {
+      if (window.GergesServicesModal && typeof window.GergesServicesModal.refresh === "function") {
+        window.GergesServicesModal.refresh();
+      }
 
-    if (window.GergesProjectPage && typeof window.GergesProjectPage.refresh === "function") {
-      window.GergesProjectPage.refresh();
+      if (window.GergesPortfolio && typeof window.GergesPortfolio.refresh === "function") {
+        window.GergesPortfolio.refresh();
+      }
+
+      if (window.GergesProjectPage && typeof window.GergesProjectPage.refresh === "function") {
+        window.GergesProjectPage.refresh();
+      }
     }
 
     saveLang(lang);
@@ -353,7 +358,9 @@
   function initLanguage() {
     const settings = loadSettings();
     const lang = settings.lang === "ar" ? "ar" : DEFAULT_LANG;
-    applyLanguage(lang);
+    applyLanguage(lang, {
+      skipWidgetRefresh: document.body.classList.contains("portfolio-details-page"),
+    });
 
     document.querySelectorAll(".lang-btn").forEach(function (button) {
       button.addEventListener("click", function () {
