@@ -1,0 +1,12 @@
+config/mail.config.php
+assets/js/mail.config.js
+vendor/
+dist-deploy/
+gerges-site.zip
+gerges-portfolio-deploy.zip
+
+# Large originals — GitHub Pages uses webp thumbs/medium only
+projects/**/*.png
+projects/**/*.jpg
+projects/**/*.jpeg
+projects/**/*.mp4

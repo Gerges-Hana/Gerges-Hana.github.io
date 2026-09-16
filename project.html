@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Project | Gerges Hanna</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/theme-customizer.css" rel="stylesheet">
+  <link href="assets/css/i18n.css" rel="stylesheet">
+  <link href="assets/css/portfolio-dynamic.css" rel="stylesheet">
+  <link href="assets/css/mobile-responsive.css" rel="stylesheet">
+
+  <script>
+    (function () {
+      try {
+        var settings = JSON.parse(localStorage.getItem("gerges-profile-settings") || "{}");
+        var root = document.documentElement;
+
+        if (settings.theme === "dark") {
+          root.setAttribute("data-theme", "dark");
+        }
+
+        if (settings.preview && settings.preview !== "desktop") {
+          root.setAttribute("data-preview", settings.preview);
+          root.setAttribute(
+            "data-preview-label",
+            settings.preview === "mobile" ? "Mobile 390px" : "Tablet 768px"
+          );
+        }
+
+        if (settings.accent) {
+          root.style.setProperty("--accent-color", settings.accent);
+          root.style.setProperty("--purple", settings.accent);
+        }
+
+        if (settings.lang === "ar") {
+          root.lang = "ar";
+          root.dir = "rtl";
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="d-flex align-items-center">
+        <h1 class="sitename">Gerges</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero" data-i18n="nav.home">Home</a></li>
+          <li><a href="index.html#about" data-i18n="nav.about">About</a></li>
+          <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="index.html#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
+          <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="lang-switcher">
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="ar">AR</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="project-page-root">
+    <section class="section">
+      <div class="container text-center py-5">
+        <div class="spinner-border text-secondary" role="status"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="project-image-modal" class="project-image-modal" aria-hidden="true" role="dialog">
+    <div class="project-image-modal-overlay" aria-hidden="true"></div>
+    <div class="project-image-modal-dialog">
+      <button type="button" class="project-image-modal-close" aria-label="Close">
+        <i class="bi bi-x-lg"></i>
+      </button>
+      <button type="button" class="project-image-modal-prev" aria-label="Previous">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <img id="project-image-modal-img" src="" alt="">
+      <button type="button" class="project-image-modal-next" aria-label="Next">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+      <div class="project-image-modal-toolbar">
+        <a id="project-image-modal-open" class="project-image-modal-open" href="#" target="_blank" rel="noopener" data-i18n="lightbox.open">Open</a>
+        <button type="button" id="project-image-modal-close-text" class="project-image-modal-close-text" data-i18n="lightbox.close">Close</button>
+      </div>
+      <div id="project-image-modal-counter" class="project-image-modal-counter"></div>
+    </div>
+  </div>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <button id="customizer-toggle" class="customizer-toggle" type="button" aria-label="Open theme settings">
+    <i class="bi bi-sliders"></i>
+  </button>
+
+  <div id="customizer-overlay" class="customizer-overlay"></div>
+
+  <aside id="theme-customizer" class="theme-customizer" aria-hidden="true">
+    <div class="customizer-header">
+      <h3 data-i18n="customizer.title">Customize</h3>
+      <button id="customizer-close" class="customizer-close" type="button" aria-label="Close theme settings">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <div class="customizer-body">
+      <section class="customizer-section">
+        <h4 data-i18n="customizer.mode">Theme Mode</h4>
+        <div class="mode-toggle">
+          <button type="button" class="customizer-option" data-theme-mode="light">
+            <i class="bi bi-sun"></i>
+            <span data-i18n="customizer.light">Light</span>
+          </button>
+          <button type="button" class="customizer-option" data-theme-mode="dark">
+            <i class="bi bi-moon-stars"></i>
+            <span data-i18n="customizer.dark">Dark</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="customizer-section">
+        <h4 data-i18n="customizer.accent">Accent Color</h4>
+        <div id="color-presets" class="color-presets"></div>
+        <div class="color-picker-row">
+          <input type="color" id="accent-color-picker" value="#7c3aed" aria-label="Pick accent color">
+          <span data-i18n="customizer.customColor">Custom color</span>
+        </div>
+      </section>
+
+      <section class="customizer-section">
+        <h4 data-i18n="customizer.preview">Screen Preview</h4>
+        <div class="preview-toggle">
+          <button type="button" class="customizer-option" data-preview-mode="mobile">
+            <i class="bi bi-phone"></i>
+            <span data-i18n="customizer.mobile">Mobile</span>
+          </button>
+          <button type="button" class="customizer-option" data-preview-mode="tablet">
+            <i class="bi bi-tablet"></i>
+            <span data-i18n="customizer.tablet">Tablet</span>
+          </button>
+          <button type="button" class="customizer-option" data-preview-mode="desktop">
+            <i class="bi bi-display"></i>
+            <span data-i18n="customizer.desktop">Desktop</span>
+          </button>
+        </div>
+        <p class="customizer-note" data-i18n="customizer.note">Preview how the layout looks at different screen widths.</p>
+      </section>
+
+      <button id="customizer-reset" class="customizer-reset" type="button" data-i18n="customizer.reset">Reset to defaults</button>
+    </div>
+  </aside>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/theme-customizer.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/projects-data.js"></script>
+  <script src="assets/js/project-page.js"></script>
+  <script src="assets/js/project-main.js"></script>
+</body>
+
+</html>

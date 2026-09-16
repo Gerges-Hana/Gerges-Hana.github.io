@@ -1,0 +1,167 @@
+/**
+ * Mobile layout + theme preview (390px) fixes.
+ * Preview mode constrains body width but Bootstrap still uses viewport breakpoints.
+ */
+
+@media (max-width: 991px) {
+  .header .container-fluid {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .lang-switcher {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero .badge {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .about .row > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .about-photo-scene {
+    min-height: 320px;
+    max-width: min(100%, 300px);
+    margin: 0 auto 24px;
+  }
+
+  .about-widget {
+    transform: scale(0.88);
+  }
+
+  .about .about-me {
+    text-align: start;
+  }
+
+  .about .about-me p {
+    font-size: 16px;
+  }
+
+  .resume .row > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .services-grid > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .services .service-item {
+    width: 100%;
+    padding: 22px 20px;
+  }
+
+  .services .service-item h3 {
+    font-size: 1.05rem;
+    line-height: 1.35;
+  }
+
+  .portfolio .isotope-container > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .portfolio .portfolio-item .portfolio-info {
+    opacity: 1;
+    transform: none;
+  }
+
+  .portfolio .portfolio-filters li {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .hero-contact a {
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 575px) {
+  .about-widget-revenue,
+  .about-widget-growth,
+  .about-widget-sparkline,
+  .about-widget-requests {
+    position: absolute;
+    transform: scale(0.82);
+  }
+
+  .about-photo-scene {
+    min-height: 280px;
+  }
+}
+
+/* Theme customizer mobile preview (desktop viewport, 390px canvas) */
+html[data-preview="mobile"] .about .row > [class*="col-"],
+html[data-preview="mobile"] .resume .row > [class*="col-"],
+html[data-preview="mobile"] .services-grid > [class*="col-"],
+html[data-preview="mobile"] .portfolio .isotope-container > [class*="col-"] {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+html[data-preview="mobile"] .about-photo-scene {
+  min-height: 300px;
+  max-width: 100%;
+  margin: 0 auto 20px;
+}
+
+html[data-preview="mobile"] .about .about-me p {
+  font-size: 15px;
+}
+
+html[data-preview="mobile"] .services .service-item {
+  width: 100%;
+  padding: 18px 16px;
+}
+
+html[data-preview="mobile"] .services .service-item h3 {
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+html[data-preview="mobile"] .portfolio .portfolio-item .portfolio-info {
+  opacity: 1;
+  transform: none;
+}
+
+html[data-preview="mobile"] .hero .badge {
+  max-width: 100%;
+  white-space: normal;
+  justify-content: center;
+}
+
+html[data-preview="tablet"] .services-grid > [class*="col-"] {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+html[data-preview="tablet"] .portfolio .isotope-container > [class*="col-"] {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+html[data-preview="tablet"] .about .row > [class*="col-"] {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+html[data-preview="tablet"] .resume .row > [class*="col-"] {
+  flex: 0 0 100%;
+  max-width: 100%;
+}

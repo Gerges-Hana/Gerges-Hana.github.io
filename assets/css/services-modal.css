@@ -1,0 +1,320 @@
+.services .service-card-trigger {
+  width: 100%;
+  text-align: start;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  display: block;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.services .service-card-trigger:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
+}
+
+.services-grid {
+  row-gap: 24px;
+}
+
+.service-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.service-modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.service-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 12, 0.65);
+  backdrop-filter: blur(4px);
+}
+
+.service-modal-dialog {
+  position: relative;
+  z-index: 2;
+  width: min(560px, 100%);
+  max-height: min(90vh, 720px);
+  overflow: auto;
+  background: var(--surface-color);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+  padding: 28px 24px 24px;
+  transform: translateY(24px) scale(0.96);
+  transition: transform 0.35s ease;
+}
+
+.service-modal.open .service-modal-dialog {
+  transform: translateY(0) scale(1);
+}
+
+.service-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 3;
+}
+
+html[dir="rtl"] .service-modal-close {
+  right: auto;
+  left: 14px;
+}
+
+.service-modal-visual {
+  position: relative;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.service-modal-orbit {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.service-modal-icon {
+  position: absolute;
+  inset: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--accent-color), transparent 65%);
+  animation: serviceIconPulse 3s ease-in-out infinite;
+}
+
+.service-float-shape {
+  position: absolute;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent-color), transparent 82%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.service-float-shape.shape-1 {
+  width: 34px;
+  height: 22px;
+  top: 8%;
+  left: 0;
+  animation: serviceShapeOrbit1 5s ease-in-out infinite;
+}
+
+.service-float-shape.shape-2 {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  top: 0;
+  right: 8%;
+  animation: serviceShapeOrbit2 6s ease-in-out infinite;
+}
+
+.service-float-shape.shape-3 {
+  width: 42px;
+  height: 14px;
+  bottom: 12%;
+  left: 6%;
+  animation: serviceShapeOrbit3 4.5s ease-in-out infinite;
+}
+
+.service-float-shape.shape-4 {
+  width: 24px;
+  height: 24px;
+  bottom: 8%;
+  right: 0;
+  animation: serviceShapeOrbit4 5.5s ease-in-out infinite;
+}
+
+.service-float-stat {
+  position: absolute;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border-light);
+  color: var(--accent-color);
+  white-space: nowrap;
+  animation: serviceStatFloat 4s ease-in-out infinite;
+}
+
+.service-float-stat.stat-a {
+  top: 18%;
+  right: -8%;
+  animation-delay: 0.2s;
+}
+
+.service-float-stat.stat-b {
+  bottom: 20%;
+  left: -12%;
+  animation-delay: 0.8s;
+}
+
+.service-modal-body h3 {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+
+.service-modal-body p {
+  margin: 0 0 20px;
+  line-height: 1.75;
+  color: var(--default-color);
+}
+
+.service-modal-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: var(--accent-color);
+  color: var(--contrast-color) !important;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-modal-contact:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--accent-color), transparent 70%);
+  color: var(--contrast-color) !important;
+}
+
+@keyframes serviceIconPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -52%) scale(1.05);
+  }
+}
+
+@keyframes serviceShapeOrbit1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.85;
+  }
+
+  50% {
+    transform: translate(8px, -10px);
+    opacity: 1;
+  }
+}
+
+@keyframes serviceShapeOrbit2 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-10px, 8px);
+  }
+}
+
+@keyframes serviceShapeOrbit3 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: translate(12px, 6px);
+    opacity: 1;
+  }
+}
+
+@keyframes serviceShapeOrbit4 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-6px, -8px) rotate(8deg);
+  }
+}
+
+@keyframes serviceStatFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+html[data-theme="dark"] .service-modal-dialog {
+  background: var(--surface-color);
+}
+
+html[data-theme="dark"] .service-float-stat {
+  background: rgba(26, 24, 34, 0.95);
+}
+
+@media (max-width: 575px) {
+  .service-modal {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .service-modal-dialog {
+    padding: 22px 18px 18px;
+    border-radius: 18px 18px 14px 14px;
+  }
+
+  .service-modal-visual {
+    min-height: 150px;
+  }
+
+  .service-modal-orbit {
+    width: 130px;
+    height: 130px;
+  }
+
+  .service-float-stat {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-modal-icon,
+  .service-float-shape,
+  .service-float-stat {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "gerges/portfolio",
+  "description": "Gerges Hanna portfolio contact mailer",
+  "require": {
+    "php": ">=8.0",
+    "phpmailer/phpmailer": "^6.9"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  }
+}

@@ -1,0 +1,123 @@
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-inline-start: 12px;
+  flex-shrink: 0;
+}
+
+.header .container-fluid {
+  gap: 12px;
+}
+
+@media (max-width: 1199px) {
+  .header .lang-switcher {
+    margin-inline-start: auto;
+    margin-inline-end: 8px;
+  }
+}
+
+.lang-btn {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+  background: color-mix(in srgb, var(--accent-color) 75%, #ffffff 25%);
+  border-color: color-mix(in srgb, var(--accent-color) 70%, #ffffff 30%);
+}
+
+html[lang="ar"] body,
+html[lang="ar"] .hero-content,
+html[lang="ar"] .about-me,
+html[lang="ar"] .customizer-body {
+  font-family: "Cairo", "Roboto", sans-serif;
+}
+
+html[dir="rtl"] .header .container-fluid {
+  direction: rtl;
+}
+
+html[dir="rtl"] .navmenu ul {
+  padding-right: 0;
+}
+
+html[dir="rtl"] .about .about-me h4::after {
+  left: auto;
+  right: 0;
+}
+
+html[dir="rtl"] .resume .resume-item {
+  border-left: none;
+  border-right: 2px solid var(--accent-color);
+  padding: 0 20px 20px 0;
+}
+
+html[dir="rtl"] .resume .resume-item::before {
+  left: auto;
+  right: -9px;
+}
+
+html[dir="rtl"] .portfolio .portfolio-item .portfolio-info h4,
+html[dir="rtl"] .portfolio .portfolio-item .portfolio-info p {
+  padding-right: 0;
+  padding-left: 50px;
+}
+
+html[dir="rtl"] .portfolio .portfolio-item .portfolio-info .preview-link,
+html[dir="rtl"] .portfolio .portfolio-item .portfolio-info .details-link {
+  right: auto;
+  left: 50px;
+}
+
+html[dir="rtl"] .portfolio .portfolio-item .portfolio-info .details-link {
+  left: 14px;
+}
+
+html[dir="rtl"] .contact .info-item i {
+  margin-right: 0;
+  margin-left: 15px;
+}
+
+html[dir="rtl"] .theme-customizer {
+  right: auto;
+  left: 0;
+  border-left: none;
+  border-right: 1px solid var(--border-light, #eeeaf5);
+  transform: translateX(-105%);
+}
+
+html[dir="rtl"] .theme-customizer.open {
+  transform: translateX(0);
+}
+
+html[dir="rtl"] .customizer-toggle {
+  left: auto;
+  right: 18px;
+}
+
+html[dir="rtl"] .scroll-top {
+  right: auto;
+  left: 15px;
+}
+
+@media (max-width: 1199px) {
+  html[dir="rtl"] .mobile-nav-toggle {
+    margin-left: 0;
+    margin-right: 12px;
+  }
+}
+
+@media (max-width: 575px) {
+  html[dir="rtl"] .customizer-toggle {
+    right: 12px;
+  }
+}

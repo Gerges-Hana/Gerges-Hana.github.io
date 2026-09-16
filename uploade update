@@ -1,0 +1,13 @@
+# Fresh GitHub Pages deploy (one-time setup on GitHub):
+# 1. Settings > Pages > Source: GitHub Actions
+# 2. Settings > Secrets > WEB3FORMS_ACCESS_KEY = your Web3Forms key
+# 3. Actions > Deploy to GitHub Pages > Run workflow
+#
+# Push from scratch:
+git checkout --orphan fresh-start
+git add .
+git commit -m "Initial portfolio for GitHub Pages"
+git branch -M main
+git push -f origin main
+#
+# Site: https://gerges-hana.github.io/gerges-portfolio/
